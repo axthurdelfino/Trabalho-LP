@@ -1,6 +1,9 @@
 <?php
 
 include_once $_SERVER['DOCUMENT_ROOT'] . "/bibliotecasv/DAL/categoria.php";
+include_once $_SERVER['DOCUMENT_ROOT'] . "/bibliotecasv/VIEW/seguranca.php";
+
+exigirLogin();
 
 $dalCategoria = new \DAL\Categoria();
 $lstCategoria = $dalCategoria->Select();
@@ -15,6 +18,10 @@ $lstCategoria = $dalCategoria->Select();
 </head>
 <body>
   <h1>Lista de Categorias</h1>
+
+  <?php if (isset($_GET['erro']) && $_GET['erro'] !== '') { ?>
+    <p style="color:red;"><?php echo htmlspecialchars($_GET['erro']); ?></p>
+  <?php } ?>
 
   <p><a href="frminscategoria.php">Nova categoria</a></p>
 

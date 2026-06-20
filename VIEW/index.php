@@ -9,6 +9,13 @@
 
     <h2>Login</h2>
 
+    <?php if (isset($_GET['erro']) && $_GET['erro'] === 'login') { ?>
+        <p style="color:red;">Usuário ou senha inválidos.</p>
+    <?php } ?>
+    <?php if (isset($_GET['erro']) && $_GET['erro'] === 'vazio') { ?>
+        <p style="color:red;">Preencha usuário e senha.</p>
+    <?php } ?>
+
     <form action="login.php" method="POST">
 
         <label>Usuário:</label><br>

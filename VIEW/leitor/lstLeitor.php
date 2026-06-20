@@ -1,6 +1,9 @@
 <?php
 
 include_once $_SERVER['DOCUMENT_ROOT'] . "/bibliotecasv/DAL/leitor.php";
+include_once $_SERVER['DOCUMENT_ROOT'] . "/bibliotecasv/VIEW/seguranca.php";
+
+exigirLogin();
 
 $dalLeitor = new \DAL\Leitor();
 $lstLeitor = $dalLeitor->Select();
@@ -15,6 +18,10 @@ $lstLeitor = $dalLeitor->Select();
 </head>
 <body>
   <h1>Lista de Leitores</h1>
+
+  <?php if (isset($_GET['erro']) && $_GET['erro'] !== '') { ?>
+    <p style="color:red;"><?php echo htmlspecialchars($_GET['erro']); ?></p>
+  <?php } ?>
 
   <p><a href="frminsleitor.php">Novo leitor</a></p>
 

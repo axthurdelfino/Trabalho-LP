@@ -1,3 +1,7 @@
+<?php
+include_once $_SERVER['DOCUMENT_ROOT'] . "/bibliotecasv/VIEW/seguranca.php";
+exigirLogin();
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -6,6 +10,10 @@
 </head>
 <body>
   <h1>Inserir Leitor</h1>
+
+  <?php if (isset($_GET['erro']) && $_GET['erro'] !== '') { ?>
+    <p style="color:red;"><?php echo htmlspecialchars($_GET['erro']); ?></p>
+  <?php } ?>
 
   <form action="opinsleitor.php" method="post">
     <label for="nome">Nome:</label><br>

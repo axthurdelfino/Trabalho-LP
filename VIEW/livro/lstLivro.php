@@ -1,6 +1,9 @@
 <?php
 
 include_once $_SERVER['DOCUMENT_ROOT'] . "/bibliotecasv/DAL/livro.php";
+include_once $_SERVER['DOCUMENT_ROOT'] . "/bibliotecasv/VIEW/seguranca.php";
+
+exigirLogin();
 
 $dalLivro = new \DAL\Livro();
 $lstLivro = $dalLivro->Select();
@@ -15,6 +18,10 @@ $lstLivro = $dalLivro->Select();
 </head>
 <body>
   <h1>Lista de Livros</h1>
+
+  <?php if (isset($_GET['erro']) && $_GET['erro'] !== '') { ?>
+    <p style="color:red;"><?php echo htmlspecialchars($_GET['erro']); ?></p>
+  <?php } ?>
 
   <p><a href="frminslivro.php">Novo livro</a></p>
 

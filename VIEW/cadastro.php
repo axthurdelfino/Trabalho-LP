@@ -8,6 +8,16 @@
 
 <h2>Cadastro de Usuário</h2>
 
+<?php if (isset($_GET['erro']) && $_GET['erro'] === 'login') { ?>
+    <p style="color:red;">Login já existe!</p>
+<?php } ?>
+<?php if (isset($_GET['erro']) && $_GET['erro'] === 'vazio') { ?>
+    <p style="color:red;">Preencha todos os campos.</p>
+<?php } ?>
+<?php if (isset($_GET['erro']) && !in_array($_GET['erro'], ['login', 'vazio'], true)) { ?>
+    <p style="color:red;">Erro ao cadastrar.</p>
+<?php } ?>
+
 <form action="registro.php" method="POST">
 
     <label>Nome:</label><br>

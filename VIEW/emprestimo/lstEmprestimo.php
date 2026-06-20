@@ -1,6 +1,9 @@
 <?php
 
 include_once $_SERVER['DOCUMENT_ROOT'] . "/bibliotecasv/DAL/emprestimo.php";
+include_once $_SERVER['DOCUMENT_ROOT'] . "/bibliotecasv/VIEW/seguranca.php";
+
+exigirLogin();
 
 $dalEmprestimo = new \DAL\Emprestimo();
 $lstEmprestimo = $dalEmprestimo->Select();
@@ -15,6 +18,10 @@ $lstEmprestimo = $dalEmprestimo->Select();
 </head>
 <body>
   <h1>Lista de Emprestimos</h1>
+
+  <?php if (isset($_GET['erro']) && $_GET['erro'] !== '') { ?>
+    <p style="color:red;"><?php echo htmlspecialchars($_GET['erro']); ?></p>
+  <?php } ?>
 
   <p><a href="frminsemprestimo.php">Novo emprestimo</a></p>
 
@@ -47,7 +54,10 @@ $lstEmprestimo = $dalEmprestimo->Select();
             <td><?= htmlspecialchars((string)$emprestimo->getDataDevolucao()) ?></td>
             <td><?= htmlspecialchars((string)$emprestimo->getStatus()) ?></td>
             <td>
-              <a href="frmdetemprestimo.php?id=<?= urlencode((string)$emprestimo->getId()) ?>">Detalhe</a>
+              <form action="frmdetemprestimo.php" method="get" style="display:inline;">
+                <input type="hidden" name="id" value="<?= htmlspecialchars((string)$emprestimo->getId()) ?>">
+                <button type="submit">Detalhe</button>
+              </form>
               |
               <a href="opdevolucao.php?id=<?= urlencode((string)$emprestimo->getId()) ?>">Devolver</a>
               |

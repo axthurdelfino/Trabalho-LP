@@ -1,5 +1,18 @@
 <?php
-$id = $_GET['id'] ?? '';
+
+include_once $_SERVER['DOCUMENT_ROOT'] . "/bibliotecasv/DAL/autor.php";
+include_once $_SERVER['DOCUMENT_ROOT'] . "/bibliotecasv/VIEW/seguranca.php";
+
+exigirLogin();
+
+$id = isset($_GET['id']) ? (int)$_GET['id'] : 0;
+$dalAutor = new \DAL\Autor();
+$autor = $dalAutor->SelectById($id);
+
+if (!$autor) {
+  header("Location: lstAutor.php?erro=" . urlencode("Autor não encontrado."));
+  exit;
+}
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -10,15 +23,19 @@ $id = $_GET['id'] ?? '';
 <body>
   <h1>Editar Autor</h1>
 
+  <?php if (isset($_GET['erro']) && $_GET['erro'] !== '') { ?>
+    <p style="color:red;"><?php echo htmlspecialchars($_GET['erro']); ?></p>
+  <?php } ?>
+
   <form action="opedtautor.php" method="post">
     <label for="id">ID:</label><br>
-    <input type="number" id="id" name="id" value="<?= htmlspecialchars($id) ?>" required><br><br>
+    <input type="number" id="id" name="id" value="<?= htmlspecialchars((string)$autor->getId()) ?>" readonly><br><br>
 
     <label for="nome">Nome:</label><br>
-    <input type="text" id="nome" name="nome" maxlength="80" required><br><br>
+    <input type="text" id="nome" name="nome" maxlength="80" value="<?= htmlspecialchars($autor->getNome()) ?>" required><br><br>
 
     <label for="nacionalidade">Nacionalidade:</label><br>
-    <input type="text" id="nacionalidade" name="nacionalidade" maxlength="50" required><br><br>
+    <input type="text" id="nacionalidade" name="nacionalidade" maxlength="50" value="<?= htmlspecialchars($autor->getNacionalidade()) ?>" required><br><br>
 
     <button type="submit">Atualizar</button>
   </form>

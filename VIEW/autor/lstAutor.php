@@ -1,6 +1,9 @@
 <?php
 
 include_once $_SERVER['DOCUMENT_ROOT'] . "/bibliotecasv/DAL/autor.php";
+include_once $_SERVER['DOCUMENT_ROOT'] . "/bibliotecasv/VIEW/seguranca.php";
+
+exigirLogin();
 
 $dalAutor = new \DAL\Autor();
 $lstAutor = $dalAutor->Select();
@@ -15,6 +18,10 @@ $lstAutor = $dalAutor->Select();
 </head>
 <body>
   <h1>Lista de Autores</h1>
+
+  <?php if (isset($_GET['erro']) && $_GET['erro'] !== '') { ?>
+    <p style="color:red;"><?php echo htmlspecialchars($_GET['erro']); ?></p>
+  <?php } ?>
 
   <p><a href="frminsautor.php">Novo autor</a></p>
 

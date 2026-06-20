@@ -3,16 +3,22 @@
 include_once $_SERVER['DOCUMENT_ROOT'] . "/bibliotecasv/DAL/usuario.php";
 include_once $_SERVER['DOCUMENT_ROOT'] . "/bibliotecasv/MODEL/usuario.php";
 
-$nome = $_POST['nome'];
-$login = $_POST['login'];
-$senha = md5($_POST['senha']);
+$nome = isset($_POST['nome']) ? trim($_POST['nome']) : '';
+$login = isset($_POST['login']) ? trim($_POST['login']) : '';
+$senhaRaw = isset($_POST['senha']) ? $_POST['senha'] : '';
+
+if ($nome === '' || $login === '' || $senhaRaw === '') {
+    header("Location: cadastro.php?erro=vazio");
+    exit;
+}
+
+$senha = md5($senhaRaw);
 
 $dalUsuario = new \DAL\Usuario();
 
 if ($dalUsuario->SelectByLogin($login)) {
-
-    echo "Login já existe!";
-    exit();
+    header("Location: cadastro.php?erro=login");
+    exit;
 
 }
 
@@ -26,6 +32,8 @@ $result = $dalUsuario->Insert($usuario);
 
 if ($result) {
     header("Location: index.php");
+    exit;
 } else {
-    echo "Erro ao cadastrar.";
+    header("Location: cadastro.php?erro=cadastro");
+    exit;
 }

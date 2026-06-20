@@ -3,8 +3,10 @@
     session_start();
 
     //destrói as variáveis de sessão
-    unset($_SESSION['login']);
+    unset($_SESSION['usuario']);
+    session_destroy();
 
     //redireciona para index.php-login
     Header("location: /bibliotecasv/VIEW/index.php");
+    exit;
 ?>

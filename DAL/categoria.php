@@ -49,7 +49,7 @@ class Categoria{
   }
 
 public function Insert(\MODEL\Categoria $categoria){
-  $sql = "INSERT INTO  Categoria (descricao) VALUES (?);";
+  $sql = "INSERT INTO categoria (descricao) VALUES (?);";
 
   $con = Conexao::conectar();
   $query = $con->prepare($sql);
