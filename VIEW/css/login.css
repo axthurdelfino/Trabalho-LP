@@ -1,0 +1,198 @@
+body {
+    background: linear-gradient(135deg, #1565C0, #42A5F5);
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Container principal */
+.login-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 400px;
+}
+
+/* Logo */
+.logo-container {
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.logo {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid white;
+    box-shadow: 0 4px 20px rgba(0,0,0,.3);
+    background: white;
+    padding: 8px;
+}
+
+/* Caixa do login */
+.login-box {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.397);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 35px;
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-sizing: border-box;
+}
+
+/* Título */
+h2 {
+    text-align: center;
+    color: #0D47A1;
+    font-size: 28px;
+    margin-bottom: 30px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-weight: 600;
+    padding-bottom: 10px;
+}
+
+/* Rótulos */
+label {
+    font-weight: bold;
+    font-size: 16px;
+    color: white;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.158)
+    
+}
+
+/* Campos */
+input {
+    width: 100%;
+    padding: 12px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.9);
+    font-size: 14px;
+}
+
+/* Campo selecionado */
+input:focus {
+    outline: none;
+    border: 2px solid #1565C0;
+    background: white;
+    box-shadow: 0 0 10px rgba(21, 101, 192, 0.2);
+}
+
+/* Botão */
+button {
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(135deg, #1976D2, #1565C0);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(25, 118, 210, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+button:hover {
+    background: linear-gradient(135deg, #1565C0, #0D47A1);
+    box-shadow: 0 6px 20px rgba(25, 118, 210, 0.5);
+    transform: translateY(-2px);
+}
+
+button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 10px rgba(25, 118, 210, 0.3);
+}
+
+/* Efeito de brilho ao passar o mouse */
+button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+button:hover::before {
+    left: 100%;
+}
+
+/* Área de cadastro */
+.cadastro {
+    text-align: center;
+    margin-top: 20px;
+    padding-top: 10px;
+}
+
+.cadastro p {
+    color: white;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.158)
+    
+}
+
+.cadastro a {
+    text-decoration: none;
+    color: #0D47A1;
+    font-weight: bold;
+    border-bottom: 1px solid #0D47A1;
+    padding-bottom: 2px;
+}
+
+.cadastro a:hover {
+    color: #ffffff;
+    border-bottom: 1px solid #ffffff;
+}
+
+
+
+
+
+
+/* Container da senha - GENÉRICO (compartilhado) */
+.senha-container {
+    position: relative;
+}
+
+/* Olho do LOGIN */
+.olho-senha-login {
+    position: absolute;
+    right: 45px;
+    top: 51%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    line-height: 0;
+}
+
+/* Olho do CADASTRO */
+.olho-senha-cadastro {
+    position: absolute;
+    right: 12px;
+    top: 20%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    line-height: 0;
+}
+
+/* Espaço no input para o ícone (compartilhado) */
+.senha-container input {
+    padding-right: 45px;
+}

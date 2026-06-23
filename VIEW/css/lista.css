@@ -1,0 +1,171 @@
+/* RESET */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background: linear-gradient(135deg, #1565C0, #42A5F5);
+    font-family: Arial, Helvetica, sans-serif;
+    min-height:100vh;
+    padding:30px;
+}
+
+/* CONTAINER */
+.lista-container{
+    width:100%;
+    max-width:1400px;
+    margin:0 auto;
+}
+
+/* CARD */
+.lista-box{
+    background:rgba(255,255,255,0.35);
+    backdrop-filter:blur(12px);
+    -webkit-backdrop-filter:blur(12px);
+    border-radius:25px;
+    padding:35px;
+    border:1px solid rgba(255,255,255,0.3);
+    box-shadow:0 10px 30px rgba(0,0,0,.15);
+}
+
+/* CABEÇALHO */
+.lista-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:25px;
+}
+
+h1{
+    color:#0D47A1;
+    font-size:38px;
+    font-weight:700;
+}
+
+.linha-decorativa{
+    width:90px;
+    height:4px;
+    border-radius:10px;
+    margin-bottom:25px;
+    background:linear-gradient(90deg,#1565C0,#42A5F5);
+}
+
+/* BOTÃO */
+.btn-novo{
+    background:linear-gradient(135deg,#1976D2,#1565C0);
+    color:white;
+    text-decoration:none;
+    padding:14px 24px;
+    border-radius:12px;
+    font-weight:bold;
+    transition:.3s;
+}
+
+.btn-novo:hover{
+    transform:translateY(-3px);
+}
+
+/* TABELA */
+.tabela-container{
+    overflow-x:auto;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    background:rgba(255,255,255,.85);
+    border-radius:15px;
+    overflow:hidden;
+}
+
+thead{
+    background:linear-gradient(135deg,#1565C0,#1976D2);
+}
+
+th{
+    color:white;
+    text-align:center;
+    padding:18px 12px;
+    font-size:15px;
+}
+
+td{
+    text-align:center;
+    padding:16px 12px;
+    border-bottom:1px solid rgba(0,0,0,.08);
+    font-size:15px;
+}
+
+tbody tr:hover{
+    background:rgba(21,101,192,.08);
+}
+
+/* AÇÕES */
+.acoes{
+    display:flex;
+    justify-content:center;
+    gap:8px;
+}
+
+.btn-editar,
+.btn-remover{
+    min-width:110px;
+    text-decoration:none;
+    padding:8px 12px;
+    border-radius:8px;
+    font-weight:bold;
+    text-align:center;
+    transition:.3s;
+}
+
+.btn-editar{
+    background:rgba(21,101,192,.15);
+    color:#1565C0;
+}
+
+.btn-editar:hover{
+    background:#1565C0;
+    color:white;
+}
+
+.btn-remover{
+    background:rgba(211,47,47,.15);
+    color:#d32f2f;
+}
+
+.btn-remover:hover{
+    background:#d32f2f;
+    color:white;
+}
+
+/* RODAPÉ */
+.lista-footer{
+    text-align:center;
+    margin-top:20px;
+}
+
+.lista-footer a{
+    color:white;
+    text-decoration:none;
+    font-weight:bold;
+    font-size:18px;
+}
+
+/* RESPONSIVO */
+@media(max-width:900px){
+
+    .lista-header{
+        flex-direction:column;
+    }
+
+    .acoes{
+        flex-direction:column;
+    }
+
+    .btn-editar,
+    .btn-remover{
+        width:100%;
+    }
+}

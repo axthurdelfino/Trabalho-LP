@@ -27,7 +27,11 @@ if ($hash == $usuario->getSenha()) {
     session_start();
     $_SESSION['usuario'] = $login;
     //$_SESSION['nivel'] = $linha['nivel'];
+<<<<<<< HEAD
     header("location:home.php");
+=======
+    header("location:menu.php");
+>>>>>>> d60fd5f (Trabalho Finalizado)
     exit;
 }
 else header("location:index.php?erro=login");
