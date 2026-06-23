@@ -1,5 +1,4 @@
 # Trabalho-LP
 
-Projeto backend da biblioteca
-
+Projeto Sistema Biblioteca
 
