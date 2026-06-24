@@ -4,9 +4,9 @@ Projeto Sistema Biblioteca
 
 Alunos:
 
-Arthur Delfino
-Felipe Torres
-Rafael Maschio
-Kaique Cruz
+Arthur Delfino,
+Felipe Torres,
+Rafael Maschio,
+Kaique Cruz.
 
 
